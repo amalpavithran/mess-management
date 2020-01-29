@@ -43,12 +43,8 @@ export default class Extras extends Component {
         })
     }
     render() {
-        // if(this.state.token==null){
-        //   this.props.navigation.goBack();
-        // }
         if (this.state.data == null) {
             this.fetchData();
-            console.log("Running");
         }
         this.extras = this.state.data.map((data, key) =>
             <ListItem last key={key}>
@@ -58,7 +54,6 @@ export default class Extras extends Component {
             </ListItem>
         );
         this.sum = this.state.data.reduce((prev, cur) => cur.amount + prev, 0)
-        console.log(this.sum)
 
         return (
             <Container>
@@ -79,7 +74,6 @@ export default class Extras extends Component {
                                         routeName: 'Home'
                                     });
                                     this.props.navigation.dispatch(Home);
-                                    console.log('ext screen')
                                 }}>
                                     <Icon name="sign-out-alt" type='FontAwesome5' />
                                 </Button>

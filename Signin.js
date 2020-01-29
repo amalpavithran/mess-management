@@ -30,7 +30,6 @@ export default class Signin extends Component {
     }
     async persistance() {
         const token = await SecureStorage.getItem('token');
-        console.log(token);
         if (token != null) {
             fetch("http://nitc-mess.anandu.net/api/users/dues", { "credentials": "omit", "headers": { "accept": "*/*", "Authorization": `Bearer ${token}` }, "method": "GET" })
                 .then(res => res.json())
@@ -42,7 +41,6 @@ export default class Signin extends Component {
                 validSession: false
             })
         }
-        console.log("test")
     }
     loginError(message) {
         this.setState({
@@ -111,7 +109,6 @@ export default class Signin extends Component {
                                             .then(async res => {
                                                 if (resCode === 200) {
                                                     const token = res.token;
-                                                    console.log(token);
                                                     await SecureStorage.setItem('token', token);
                                                     await SecureStorage.setItem('name', res.user.name);
                                                     await SecureStorage.setItem('roll', res.user.rollNumber);

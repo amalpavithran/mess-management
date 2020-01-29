@@ -6,8 +6,7 @@ import SignupScreen from './Signup';
 import Extras from './Extras';
 import Signin from './Signin';
 
-// Photo by Cayla1 on Unsplash
-export let validSession = false;
+export let initPage;
 
 
 export class App extends Component {
